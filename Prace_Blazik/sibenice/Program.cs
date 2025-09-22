@@ -14,7 +14,7 @@
             {
                 Console.WriteLine("Napište písmeno co chcete hrát");
                 string input = Console.ReadLine().ToLower();
-                char[] hrac= input.ToCharArray();
+                char hrac= input[0].ToCharArray();
 
                 for (int i = 0; i<pismena.Length;i++)
                 { 
