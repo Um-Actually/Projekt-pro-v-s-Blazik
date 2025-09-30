@@ -7,8 +7,8 @@ namespace sibenice
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            List<string> slova = new List<string> { "Pepa"};
-            string slovo = slova[rnd.Next(slova.Count)].ToLower();
+            string[] obsah = File.ReadAllLines("slova.txt");
+            string slovo = obsah[rnd.Next(obsah.Length)].ToLower();
             char[] pismena = slovo.ToCharArray();
             char[] zkryte_slovo= new char[slovo.Length];
 
@@ -41,7 +41,10 @@ namespace sibenice
                 if (!zkryte_slovo.Contains('_'))
                 {
                     Console.WriteLine("Vyhrál jsi");
-                    pokusy = -125000165;
+                    Console.WriteLine("Nyní můžete přidat slovo do slovníku");
+                    string noveslovo=Console.ReadLine();
+                    File.AppendAllText("slova.txt", Environment.NewLine + noveslovo);
+                    break;
                 }
             }
         }
