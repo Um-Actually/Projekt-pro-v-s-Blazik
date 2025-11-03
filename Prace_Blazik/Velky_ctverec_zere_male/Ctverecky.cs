@@ -36,5 +36,9 @@ namespace Velky_ctverec_zere_male
         {
             spriteBatch.Draw(texture, Rect, color);
         }
+        public bool Koliduje(Ctverecky jiny)
+        {
+            return Rect.Intersects(jiny.Rect);
+        }
     }
 }

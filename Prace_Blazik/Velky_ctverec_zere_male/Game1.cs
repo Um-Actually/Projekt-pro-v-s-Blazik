@@ -32,7 +32,7 @@ namespace Velky_ctverec_zere_male
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            hrac = new Ctverecky(GraphicsDevice, new Rectangle(100, 100, 100, 100));
+            hrac = new Ctverecky(GraphicsDevice, new Rectangle(100, 100, 50, 50));
             maleCtverecky = new List<Ctverecky>();
             for (int i = 0; i < 10; i++)
             {
@@ -50,8 +50,13 @@ namespace Velky_ctverec_zere_male
             KeyboardState state = Keyboard.GetState();
             int speed = 5;
             hrac.Pohnout(state);
-
-            base.Update(gameTime);
+            for (int i = maleCtverecky.Count - 1; i >= 0; i--)
+            {
+                if (hrac.Koliduje(maleCtverecky[i]))
+                {
+                    maleCtverecky.RemoveAt(i);
+                }
+            }
         }
 
         protected override void Draw(GameTime gameTime)
