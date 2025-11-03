@@ -55,6 +55,8 @@ namespace Velky_ctverec_zere_male
                 if (hrac.Koliduje(maleCtverecky[i]))
                 {
                     maleCtverecky.RemoveAt(i);
+                    hrac.zvetsit(5);
+                    hrac.zpomalit();
                 }
             }
         }

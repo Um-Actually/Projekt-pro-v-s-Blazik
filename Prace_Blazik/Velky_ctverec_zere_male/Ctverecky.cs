@@ -32,6 +32,15 @@ namespace Velky_ctverec_zere_male
 
             Rect = new Rectangle(x, y, Rect.Width, Rect.Height);
         }
+        public void zvetsit(int oKolik)
+        {
+            Rect = new Rectangle(Rect.X, Rect.Y, Rect.Width + oKolik, Rect.Height + oKolik);
+        }
+        public void zpomalit()
+        {
+            v = (int)(v * 0.9); 
+            if (v < 1) v = 1;
+        }
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(texture, Rect, color);
